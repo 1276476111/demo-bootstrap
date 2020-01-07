@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qsn.bootstrap.modules.dao.UserCouponMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qsn.bootstrap.modules.entity.UserCoupon">
+        <id column="id" property="id" />
+        <result column="user_name" property="userName" />
+        <result column="password" property="password" />
+        <result column="sex" property="sex" />
+        <result column="age" property="age" />
+        <result column="money" property="money" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, userName, password, sex, age, money, remark, createTime, updateTime
+    </sql>
+
+    <select id="selectByUserName" resultMap="BaseResultMap">
+        SELECT *
+        FROM wx_user_coupon w
+        WHERE  w.user_name=#{userName}
+    </select>
+
+</mapper>
